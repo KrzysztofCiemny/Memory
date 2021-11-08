@@ -1,0 +1,48 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #001101;
+    color: #fff;
+}
+.header {
+    height: 10vh;
+}
+.levels {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;  
+}
+.levels button {
+    width: 70px;
+    height: 30px;
+    margin: 0 10px 0 10px;
+}
+.card {
+    background-color: cornflowerblue;
+    width: 100px;
+    height: 135px;
+    margin: 10px;
+    border-radius: 3px;
+    border: 1px solid #fff;
+}
+.cards-container {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cards {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.cards-first-row,
+.cards-second-row {
+    display: flex;
+    justify-content: center;
+}
