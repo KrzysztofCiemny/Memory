@@ -4,7 +4,7 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: #001101;
+    background-color: #002202;
     color: #fff;
 }
 .card {
@@ -25,15 +25,13 @@ body {
     align-items: center;
 }
 .cards {
-    width: 35vw;
+    width: 90vw;
     display: flex;
     flex-wrap: wrap;
 }
-.kupa {
+img {
     width: 200px;
-    height: 300px;
-    background-color: blue;
-    border: solid 5px pink;
-    border-radius: 30px;
+    height: 250px;
+    margin: 5px;
     cursor: pointer;
 }
