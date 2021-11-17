@@ -5,6 +5,6 @@ function showCards () {
         let card = document.createElement('img');
         card.setAttribute('src', 'img/front.jpeg');
         card.setAttribute('data-index', i);
-
+        // card.addEventListener('click', turnCard);
     }
 }
