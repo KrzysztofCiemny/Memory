@@ -1,7 +1,7 @@
-import cardsImagesArray from "./cardsArray.js";
+import showCards from "./showCards.js";
 
 document.addEventListener('DOMContentLoaded', () => {
-
+    showCards();
 });
 
 
