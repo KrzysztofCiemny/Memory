@@ -1,19 +1,19 @@
 const imagesArray = [
     {
         name: 'image1',
-        img: 'image1.jpeg'
+        img: 'img/image1.jpeg'
     },
     {
         name: 'image2',
-        img: 'image2.jpeg'
+        img: 'img/image2.jpeg'
     },
     {
         name: 'image3',
-        img: 'image3.jpeg'
+        img: 'img/image3.jpeg'
     },
     {
         name: 'image4',
-        img: 'image4.jpeg'
+        img: 'img/image4.jpeg'
     }
 ];
 const copyOfImagesArray = [...imagesArray];
