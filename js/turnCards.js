@@ -20,8 +20,9 @@ function checkForMatches() {
     const secondClickedCardId = cardsClickedIndex[second];
     if(cardsClicked[first] === cardsClicked[second]) match(cards, firstClickedCardId, secondClickedCardId);
     else noMatch(cards, firstClickedCardId, secondClickedCardId);
+    cardsClicked = [];
+    cardsClickedIndex = [];
 }
-
 function match(cards, first, second){
     cards[first].classList.add('card-hit');
     cards[second].classList.add('card-hit');
