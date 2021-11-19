@@ -18,17 +18,17 @@ function checkForMatches() {
     const cards = document.querySelectorAll('img');
     const firstClickedCardId = cardsClickedIndex[first];
     const secondClickedCardId = cardsClickedIndex[second];
-    console.log(cards[firstClickedCardId]);
     if(cardsClicked[first] === cardsClicked[second]) match(cards, firstClickedCardId, secondClickedCardId);
-    else {
-
-    }
-
+    else noMatch(cards, firstClickedCardId, secondClickedCardId);
 }
 
 function match(cards, first, second){
     cards[first].classList.add('card-hit');
     cards[second].classList.add('card-hit');
+}
+function noMatch(cards, first, second){
+    cards[first].setAttribute('src', 'img/front.jpeg');
+    cards[second].setAttribute('src', 'img/front.jpeg');
 }
 
 export default turnCard;
