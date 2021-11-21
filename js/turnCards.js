@@ -14,6 +14,7 @@ function turnCard() {
 
 const first = 0;
 const second = 1;
+let allMatches = [];
 
 function checkForMatches() {
     const cards = document.querySelectorAll('img');
@@ -27,10 +28,15 @@ function checkForMatches() {
 function match(cards, firstClicked, secondClicked){
     cards[firstClicked].classList.add('card-hit');
     cards[secondClicked].classList.add('card-hit');
+    allMatches.push(firstClicked, secondClicked);
+    if(allMatches.length === cardsImagesArray.length) youWin();
 }
 function noMatch(cards, firstClicked, secondClicked){
     cards[firstClicked].setAttribute('src', 'img/front.jpeg');
     cards[secondClicked].setAttribute('src', 'img/front.jpeg');
+}
+function youWin() {
+    alert('you win brooo');
 }
 
 export default turnCard;
