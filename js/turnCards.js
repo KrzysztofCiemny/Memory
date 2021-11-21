@@ -2,13 +2,14 @@ import cardsImagesArray from "./cardsArray.js";
 
 let cardsClicked = [];
 let cardsClickedIndex = [];
+const twoCards = 2;
 
 function turnCard() {
     const cardIndex = this.getAttribute('data-index');
     cardsClicked.push(cardsImagesArray[cardIndex].name);
     cardsClickedIndex.push(cardIndex);
     this.setAttribute('src', cardsImagesArray[cardIndex].img);
-    if (cardsClicked.length === 2) checkForMatches();
+    if (cardsClicked.length === twoCards) checkForMatches();
 }
 
 const first = 0;
@@ -23,13 +24,13 @@ function checkForMatches() {
     cardsClicked = [];
     cardsClickedIndex = [];
 }
-function match(cards, first, second){
-    cards[first].classList.add('card-hit');
-    cards[second].classList.add('card-hit');
+function match(cards, firstClicked, secondClicked){
+    cards[firstClicked].classList.add('card-hit');
+    cards[secondClicked].classList.add('card-hit');
 }
-function noMatch(cards, first, second){
-    cards[first].setAttribute('src', 'img/front.jpeg');
-    cards[second].setAttribute('src', 'img/front.jpeg');
+function noMatch(cards, firstClicked, secondClicked){
+    cards[firstClicked].setAttribute('src', 'img/front.jpeg');
+    cards[secondClicked].setAttribute('src', 'img/front.jpeg');
 }
 
 export default turnCard;
