@@ -35,8 +35,10 @@ function noMatch(cards, firstClicked, secondClicked){
     cards[firstClicked].setAttribute('src', 'img/front.jpeg');
     cards[secondClicked].setAttribute('src', 'img/front.jpeg');
 }
+
+const winPlate = document.querySelector('.win-plate');
 function youWin() {
-    alert('you win brooo');
+    winPlate.style.animation = 'goDown forwards 1s 0.2s ease-in-out';
 }
 
 export default turnCard;
