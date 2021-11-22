@@ -41,4 +41,12 @@ function youWin() {
     winPlate.style.animation = 'goDown forwards 1s 0.2s ease-in-out';
 }
 
+const playAgainButton = document.querySelector('.play-again');
+playAgainButton.addEventListener('click', () => {
+    const cards = document.querySelectorAll('img');
+    cards.forEach(card => {
+        card.setAttribute('src', 'img/front.jpeg');
+        card.classList.remove('card-hit');
+    });
+});
 export default turnCard;
