@@ -43,6 +43,7 @@ function youWin() {
 
 const playAgainButton = document.querySelector('.play-again');
 playAgainButton.addEventListener('click', () => {
+    cardsImagesArray.sort(() => 0.5 - Math.random());
     const cards = document.querySelectorAll('img');
     cards.forEach(card => {
         card.setAttribute('src', 'img/front.jpeg');
