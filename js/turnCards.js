@@ -29,6 +29,7 @@ function checkForMatches() {
     else noMatch(cards, firstClickedCardId, secondClickedCardId);
     cardsClickedName = [];
     cardsClickedIndex = [];
+    cardsClicked = [];
 }
 function match(cards, firstClicked, secondClicked){
     cards[firstClicked].classList.add('card-hit');
@@ -39,6 +40,7 @@ function match(cards, firstClicked, secondClicked){
 function noMatch(cards, firstClicked, secondClicked){
     cards[firstClicked].setAttribute('src', 'img/front.jpeg');
     cards[secondClicked].setAttribute('src', 'img/front.jpeg');
+    cardsClicked.forEach(card => card.addEventListener('click', turnCard));
 }
 
 const winPlate = document.querySelector('.win-plate');
