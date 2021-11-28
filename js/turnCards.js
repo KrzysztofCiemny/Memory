@@ -1,17 +1,20 @@
 import cardsImagesArray from "./cardsArray.js";
 
-let cardsClicked = [];
+let cardsClickedName = [];
 let cardsClickedIndex = [];
+let cardsClicked = [];
 const twoCards = 2;
 
 function turnCard() {
     console.log(this);
     this.removeEventListener('click', turnCard);
+    cardsClicked.push(this);
+
     const cardIndex = this.getAttribute('data-index');
-    cardsClicked.push(cardsImagesArray[cardIndex].name);
+    cardsClickedName.push(cardsImagesArray[cardIndex].name);
     cardsClickedIndex.push(cardIndex);
     this.setAttribute('src', cardsImagesArray[cardIndex].img);
-    if (cardsClicked.length === twoCards) checkForMatches();
+    if (cardsClickedName.length === twoCards) checkForMatches();
 }
 
 const first = 0;
@@ -22,9 +25,9 @@ function checkForMatches() {
     const cards = document.querySelectorAll('img');
     const firstClickedCardId = cardsClickedIndex[first];
     const secondClickedCardId = cardsClickedIndex[second];
-    if(cardsClicked[first] === cardsClicked[second]) match(cards, firstClickedCardId, secondClickedCardId);
+    if(cardsClickedName[first] === cardsClickedName[second]) match(cards, firstClickedCardId, secondClickedCardId);
     else noMatch(cards, firstClickedCardId, secondClickedCardId);
-    cardsClicked = [];
+    cardsClickedName = [];
     cardsClickedIndex = [];
 }
 function match(cards, firstClicked, secondClicked){
