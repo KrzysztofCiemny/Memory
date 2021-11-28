@@ -5,6 +5,8 @@ let cardsClickedIndex = [];
 const twoCards = 2;
 
 function turnCard() {
+    console.log(this);
+    this.removeEventListener('click', turnCard);
     const cardIndex = this.getAttribute('data-index');
     cardsClicked.push(cardsImagesArray[cardIndex].name);
     cardsClickedIndex.push(cardIndex);
@@ -49,5 +51,6 @@ playAgainButton.addEventListener('click', () => {
         card.setAttribute('src', 'img/front.jpeg');
         card.classList.remove('card-hit');
     });
+    winPlate.style.animationFillMode = 'backwards';
 });
 export default turnCard;

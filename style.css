@@ -53,6 +53,9 @@ img {
     transform: translateY(-100vh);
 }
 @keyframes goDown {
+    /* from {
+        transform: translateY(-100vh);
+    } */
     to {
         transform: translateY(0);
     }
