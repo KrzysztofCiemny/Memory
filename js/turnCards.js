@@ -6,7 +6,6 @@ let cardsClicked = [];
 const twoCards = 2;
 
 function turnCard() {
-    console.log(this);
     this.removeEventListener('click', turnCard);
     cardsClicked.push(this);
 
@@ -30,6 +29,7 @@ function checkForMatches() {
     cardsClickedName = [];
     cardsClickedIndex = [];
     cardsClicked = [];
+    console.log(cardsClicked);
 }
 function match(cards, firstClicked, secondClicked){
     cards[firstClicked].classList.add('card-hit');
@@ -54,6 +54,7 @@ playAgainButton.addEventListener('click', () => {
     const cards = document.querySelectorAll('img');
     cards.forEach(card => {
         card.setAttribute('src', 'img/front.jpeg');
+        card.addEventListener('click', turnCard);
         card.classList.remove('card-hit');
     });
     winPlate.style.animationFillMode = 'backwards';
