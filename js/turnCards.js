@@ -45,6 +45,7 @@ function noMatch(cards, firstClicked, secondClicked) {
 const winPlate = document.querySelector('.win-plate');
 function youWin() {
     winPlate.classList.toggle('goDown');
+    allMatches = [];
 }
 
 const playAgainButton = document.querySelector('.play-again');
