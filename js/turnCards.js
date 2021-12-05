@@ -24,20 +24,19 @@ function checkForMatches() {
     const cards = document.querySelectorAll('img');
     const firstClickedCardId = cardsClickedIndex[first];
     const secondClickedCardId = cardsClickedIndex[second];
-    if(cardsClickedName[first] === cardsClickedName[second]) match(cards, firstClickedCardId, secondClickedCardId);
+    if (cardsClickedName[first] === cardsClickedName[second]) match(cards, firstClickedCardId, secondClickedCardId);
     else noMatch(cards, firstClickedCardId, secondClickedCardId);
     cardsClickedName = [];
     cardsClickedIndex = [];
     cardsClicked = [];
-    console.log(cardsClicked);
 }
-function match(cards, firstClicked, secondClicked){
+function match(cards, firstClicked, secondClicked) {
     cards[firstClicked].classList.add('card-hit');
     cards[secondClicked].classList.add('card-hit');
     allMatches.push(firstClicked, secondClicked);
-    if(allMatches.length === cardsImagesArray.length) youWin();
+    if (allMatches.length === cardsImagesArray.length) youWin();
 }
-function noMatch(cards, firstClicked, secondClicked){
+function noMatch(cards, firstClicked, secondClicked) {
     cards[firstClicked].setAttribute('src', 'img/front.jpeg');
     cards[secondClicked].setAttribute('src', 'img/front.jpeg');
     cardsClicked.forEach(card => card.addEventListener('click', turnCard));
@@ -45,7 +44,7 @@ function noMatch(cards, firstClicked, secondClicked){
 
 const winPlate = document.querySelector('.win-plate');
 function youWin() {
-    winPlate.style.animation = 'goDown forwards 1s 0.2s ease-in-out';
+    winPlate.classList.toggle('goDown');
 }
 
 const playAgainButton = document.querySelector('.play-again');
@@ -57,6 +56,6 @@ playAgainButton.addEventListener('click', () => {
         card.addEventListener('click', turnCard);
         card.classList.remove('card-hit');
     });
-    winPlate.style.animationFillMode = 'backwards';
+    winPlate.classList.toggle('goDown');
 });
 export default turnCard;

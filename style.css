@@ -51,14 +51,10 @@ img {
     text-align: center;
     z-index: 10;
     transform: translateY(-100vh);
+    transition: all 1s ease-in-out;
 }
-@keyframes goDown {
-    /* from {
-        transform: translateY(-100vh);
-    } */
-    to {
-        transform: translateY(0);
-    }
+.goDown {
+    transform: translateY(0);
 }
 .play-again {
 
