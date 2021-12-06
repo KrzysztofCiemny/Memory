@@ -6,14 +6,18 @@ let cardsClicked = [];
 const twoCards = 2;
 
 function turnCard() {
-    this.removeEventListener('click', turnCard);
-    cardsClicked.push(this);
+    const card = this;
+    card.removeEventListener('click', turnCard);
+    card.style.cursor = 'auto';
+    cardsClicked.push(card);
 
-    const cardIndex = this.getAttribute('data-index');
+    const cardIndex = card.getAttribute('data-index');
     cardsClickedName.push(cardsImagesArray[cardIndex].name);
     cardsClickedIndex.push(cardIndex);
-    this.setAttribute('src', cardsImagesArray[cardIndex].img);
-    if (cardsClickedName.length === twoCards) checkForMatches();
+    card.setAttribute('src', cardsImagesArray[cardIndex].img);
+    if (cardsClicked.length === twoCards) {
+        setTimeout(checkForMatches, 500);
+    };
 }
 
 const first = 0;
@@ -39,7 +43,10 @@ function match(cards, firstClicked, secondClicked) {
 function noMatch(cards, firstClicked, secondClicked) {
     cards[firstClicked].setAttribute('src', 'img/front.jpeg');
     cards[secondClicked].setAttribute('src', 'img/front.jpeg');
-    cardsClicked.forEach(card => card.addEventListener('click', turnCard));
+    cardsClicked.forEach(card => {
+        card.addEventListener('click', turnCard);
+        card.style.cursor = 'pointer';
+    });
 }
 
 const winPlate = document.querySelector('.win-plate');
@@ -55,6 +62,7 @@ playAgainButton.addEventListener('click', () => {
     cards.forEach(card => {
         card.setAttribute('src', 'img/front.jpeg');
         card.addEventListener('click', turnCard);
+        card.style.cursor = 'pointer';
         card.classList.remove('card-hit');
     });
     winPlate.classList.toggle('goDown');
