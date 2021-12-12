@@ -1,5 +1,5 @@
 import cardsImagesArray from "./cardsArray.js";
-import turnCard from "./turnCards.js";
+import turnCard from "./turnCards.js"; 
 
 const board = document.querySelector('.cards');
 
@@ -12,4 +12,6 @@ function showCards() {
         board.appendChild(card);
     }
 }
+
+
 export default showCards;

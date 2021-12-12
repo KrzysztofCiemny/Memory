@@ -16,7 +16,7 @@ function turnCard() {
     cardsClickedIndex.push(cardIndex);
     card.setAttribute('src', cardsImagesArray[cardIndex].img);
     if (cardsClicked.length === twoCards) {
-        setTimeout(checkForMatches, 500);
+        checkForMatches();
     };
 }
 
@@ -28,25 +28,31 @@ function checkForMatches() {
     const cards = document.querySelectorAll('img');
     const firstClickedCardId = cardsClickedIndex[first];
     const secondClickedCardId = cardsClickedIndex[second];
-    if (cardsClickedName[first] === cardsClickedName[second]) match(cards, firstClickedCardId, secondClickedCardId);
-    else noMatch(cards, firstClickedCardId, secondClickedCardId);
+    if (cardsClickedName[first] === cardsClickedName[second]) {
+        match(firstClickedCardId, secondClickedCardId);
+    }
+    else {
+        noMatch(cards, firstClickedCardId, secondClickedCardId);
+    }
     cardsClickedName = [];
     cardsClickedIndex = [];
     cardsClicked = [];
 }
-function match(cards, firstClicked, secondClicked) {
-    cards[firstClicked].classList.add('card-hit');
-    cards[secondClicked].classList.add('card-hit');
+function match(firstClicked, secondClicked) {
     allMatches.push(firstClicked, secondClicked);
-    if (allMatches.length === cardsImagesArray.length) youWin();
+    if (allMatches.length === cardsImagesArray.length) {
+        youWin();
+    }
 }
 function noMatch(cards, firstClicked, secondClicked) {
-    cards[firstClicked].setAttribute('src', 'img/front.jpeg');
-    cards[secondClicked].setAttribute('src', 'img/front.jpeg');
-    cardsClicked.forEach(card => {
-        card.addEventListener('click', turnCard);
-        card.style.cursor = 'pointer';
-    });
+    setTimeout(() => {
+        cards[firstClicked].setAttribute('src', 'img/front.jpeg');
+        cards[secondClicked].setAttribute('src', 'img/front.jpeg');
+        cardsClicked.forEach(card => {
+            card.addEventListener('click', turnCard);
+            card.style.cursor = 'pointer';
+        });
+    }, 1500);
 }
 
 const winPlate = document.querySelector('.win-plate');
@@ -63,7 +69,6 @@ playAgainButton.addEventListener('click', () => {
         card.setAttribute('src', 'img/front.jpeg');
         card.addEventListener('click', turnCard);
         card.style.cursor = 'pointer';
-        card.classList.remove('card-hit');
     });
     winPlate.classList.toggle('goDown');
 });
