@@ -4,10 +4,12 @@ let cardsClickedName = [];
 let cardsClickedIndex = [];
 let cardsClicked = [];
 const twoCards = 2;
+let lockBoard = false;
 
 function turnCard() {
+    if(lockBoard) return;
     const card = this;
-    card.removeEventListener('click', turnCard);
+    card.removeEventListener('click', turnCard); 
     card.style.cursor = 'auto';
     cardsClicked.push(card);
 
@@ -16,7 +18,8 @@ function turnCard() {
     cardsClickedIndex.push(cardIndex);
     card.setAttribute('src', cardsImagesArray[cardIndex].img);
     if (cardsClicked.length === twoCards) {
-        checkForMatches();
+        lockBoard = true;
+        setTimeout(checkForMatches, 1500);
     };
 }
 
@@ -43,16 +46,16 @@ function match(firstClicked, secondClicked) {
     if (allMatches.length === cardsImagesArray.length) {
         youWin();
     }
+    lockBoard = false;
 }
 function noMatch(cards, firstClicked, secondClicked) {
-    setTimeout(() => {
-        cards[firstClicked].setAttribute('src', 'img/front.jpeg');
-        cards[secondClicked].setAttribute('src', 'img/front.jpeg');
-        cardsClicked.forEach(card => {
-            card.addEventListener('click', turnCard);
-            card.style.cursor = 'pointer';
-        });
-    }, 1500);
+    cards[firstClicked].setAttribute('src', 'img/front.jpeg');
+    cards[secondClicked].setAttribute('src', 'img/front.jpeg');
+    cardsClicked.forEach(card => {
+        card.addEventListener('click', turnCard);
+        card.style.cursor = 'pointer';
+    });
+    lockBoard = false;
 }
 
 const winPlate = document.querySelector('.win-plate');
