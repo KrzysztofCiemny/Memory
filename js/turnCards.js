@@ -18,8 +18,7 @@ function turnCard() {
     cardsClickedIndex.push(cardIndex);
     card.setAttribute('src', cardsImagesArray[cardIndex].img);
     if (cardsClicked.length === twoCards) {
-        lockBoard = true;
-        setTimeout(checkForMatches, 1500);
+        checkForMatches();
     };
 }
 
@@ -28,33 +27,32 @@ const second = 1;
 let allMatches = [];
 
 function checkForMatches() {
-    const cards = document.querySelectorAll('img');
     const firstClickedCardId = cardsClickedIndex[first];
     const secondClickedCardId = cardsClickedIndex[second];
     if (cardsClickedName[first] === cardsClickedName[second]) {
-        match(firstClickedCardId, secondClickedCardId);
+        match(firstClickedCardId, secondClickedCardId); 
     }
     else {
-        noMatch(cards, firstClickedCardId, secondClickedCardId);
+        lockBoard = true;
+        setTimeout(noMatch, 1500);
     }
     cardsClickedName = [];
     cardsClickedIndex = [];
-    cardsClicked = [];
 }
 function match(firstClicked, secondClicked) {
     allMatches.push(firstClicked, secondClicked);
     if (allMatches.length === cardsImagesArray.length) {
         youWin();
     }
-    lockBoard = false;
+    cardsClicked = [];
 }
-function noMatch(cards, firstClicked, secondClicked) {
-    cards[firstClicked].setAttribute('src', 'img/front.jpeg');
-    cards[secondClicked].setAttribute('src', 'img/front.jpeg');
+function noMatch() {
     cardsClicked.forEach(card => {
+        card.setAttribute('src', 'img/front.jpeg');
         card.addEventListener('click', turnCard);
         card.style.cursor = 'pointer';
     });
+    cardsClicked = [];
     lockBoard = false;
 }
 
