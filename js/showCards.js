@@ -3,7 +3,7 @@ import turnCard from "./turnCards.js";
 
 const board = document.querySelector('.cards');
 
-function showCards() {
+export default function showCards() {
     for (let i = 0; i < cardsImagesArray.length; i++) {
         const card = document.createElement('img');
         card.setAttribute('src', 'img/front.jpeg');
@@ -12,6 +12,3 @@ function showCards() {
         board.appendChild(card);
     }
 }
-
-
-export default showCards;

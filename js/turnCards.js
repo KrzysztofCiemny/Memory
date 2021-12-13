@@ -1,12 +1,11 @@
 import cardsImagesArray from "./cardsArray.js";
 
 let cardsClickedName = [];
-let cardsClickedIndex = [];
 let cardsClicked = [];
-const twoCards = 2;
 let lockBoard = false;
+const twoCards = 2;
 
-function turnCard() {
+export default function turnCard() {
     if(lockBoard) return;
     const card = this;
     card.removeEventListener('click', turnCard); 
@@ -15,7 +14,6 @@ function turnCard() {
 
     const cardIndex = card.getAttribute('data-index');
     cardsClickedName.push(cardsImagesArray[cardIndex].name);
-    cardsClickedIndex.push(cardIndex);
     card.setAttribute('src', cardsImagesArray[cardIndex].img);
     if (cardsClicked.length === twoCards) {
         checkForMatches();
@@ -24,28 +22,29 @@ function turnCard() {
 
 const first = 0;
 const second = 1;
-let allMatches = [];
 
 function checkForMatches() {
-    const firstClickedCardId = cardsClickedIndex[first];
-    const secondClickedCardId = cardsClickedIndex[second];
     if (cardsClickedName[first] === cardsClickedName[second]) {
-        match(firstClickedCardId, secondClickedCardId); 
+        match();
     }
     else {
         lockBoard = true;
         setTimeout(noMatch, 1500);
     }
     cardsClickedName = [];
-    cardsClickedIndex = [];
 }
-function match(firstClicked, secondClicked) {
-    allMatches.push(firstClicked, secondClicked);
-    if (allMatches.length === cardsImagesArray.length) {
+
+let allMatches = [];
+const halfOfCards = 2;
+
+function match() {
+    allMatches.push(cardsClicked);
+    if (allMatches.length === cardsImagesArray.length / halfOfCards) {
         youWin();
     }
     cardsClicked = [];
 }
+
 function noMatch() {
     cardsClicked.forEach(card => {
         card.setAttribute('src', 'img/front.jpeg');
@@ -57,20 +56,8 @@ function noMatch() {
 }
 
 const winPlate = document.querySelector('.win-plate');
+
 function youWin() {
     winPlate.classList.toggle('goDown');
     allMatches = [];
 }
-
-const playAgainButton = document.querySelector('.play-again');
-playAgainButton.addEventListener('click', () => {
-    cardsImagesArray.sort(() => 0.5 - Math.random());
-    const cards = document.querySelectorAll('img');
-    cards.forEach(card => {
-        card.setAttribute('src', 'img/front.jpeg');
-        card.addEventListener('click', turnCard);
-        card.style.cursor = 'pointer';
-    });
-    winPlate.classList.toggle('goDown');
-});
-export default turnCard;
