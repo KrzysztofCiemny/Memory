@@ -1,9 +1,9 @@
 import showCards from "./showCards.js";
-import playAgain from "./playAgain.js";
+import addingPlayAgainEvent from "./playAgain.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     showCards();
-    playAgain();
+    addingPlayAgainEvent();
 });
 
 
