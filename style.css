@@ -33,6 +33,9 @@ body {
 .card:hover {
     cursor: pointer;
 }
+.card.flip{
+    transform:rotateY(180deg);
+}
 .front,
 .back {
     width: 100%;
@@ -40,6 +43,7 @@ body {
     margin: 2px;
     position: absolute
 }
+
 .win-plate {
     position: absolute;
     left: 50%;

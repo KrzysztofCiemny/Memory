@@ -1,10 +1,11 @@
-import showCards from "./showCards.js";
 import addingPlayAgainEvent from "./playAgain.js";
+import turnCard from "./turnCards.js";
 
-document.addEventListener('DOMContentLoaded', () => {
-    showCards();
-    addingPlayAgainEvent();
-});
+const cards = document.querySelectorAll(".card");
+cards.forEach(card => card.addEventListener('click', turnCard));
+
+addingPlayAgainEvent();
+
 
 
 

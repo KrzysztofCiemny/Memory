@@ -7,14 +7,15 @@ const twoCards = 2;
 
 export default function turnCard() {
     if(lockBoard) return;
-    const card = this;
-    card.removeEventListener('click', turnCard); 
-    card.style.cursor = 'auto';
-    cardsClicked.push(card);
+
+    const clickedCard = this;
+    clickedCard.removeEventListener('click', turnCard); 
+    clickedCard.style.cursor = 'auto';
+    clickedCard.classList.toggle('flip');
+    cardsClicked.push(clickedCard);
     
-    const cardIndex = card.getAttribute('data-index');
+    const cardIndex = clickedCard.getAttribute('data-index');
     cardsClickedName.push(cardsImagesArray[cardIndex].name);
-    card.setAttribute('src', cardsImagesArray[cardIndex].img);
     if (cardsClicked.length === twoCards) {
         checkForMatches();
     };
@@ -47,7 +48,7 @@ function match() {
 
 function noMatch() {
     cardsClicked.forEach(card => {
-        card.setAttribute('src', 'img/front.jpeg');
+        card.classList.toggle('flip');
         card.addEventListener('click', turnCard);
         card.style.cursor = 'pointer';
     });
@@ -56,7 +57,6 @@ function noMatch() {
 }
 
 const winPlate = document.querySelector('.win-plate');
-
 function youWin() {
     winPlate.classList.toggle('goDown');
     allMatches = [];
