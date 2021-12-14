@@ -1,5 +1,5 @@
 import cardsImagesArray from "./cardsArray.js";
-import turnCard from "./turnCards.js"; 
+import turnCard from "./turnCards.js";
 
 const playAgainButton = document.querySelector('.play-again');
 const winPlate = document.querySelector('.win-plate');

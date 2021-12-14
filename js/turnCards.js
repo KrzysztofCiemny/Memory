@@ -11,7 +11,7 @@ export default function turnCard() {
     card.removeEventListener('click', turnCard); 
     card.style.cursor = 'auto';
     cardsClicked.push(card);
-
+    
     const cardIndex = card.getAttribute('data-index');
     cardsClickedName.push(cardsImagesArray[cardIndex].name);
     card.setAttribute('src', cardsImagesArray[cardIndex].img);
