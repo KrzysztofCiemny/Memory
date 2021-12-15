@@ -14,16 +14,18 @@ body {
     align-items: center;
 }
 .cards {
-    width: 550px;
+    width: 500px;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     perspective: 1000px;
 }
 .card {
     position: relative;
-    width: 120px;
-    height: 150px;
+    width: 70px;
+    height: 90px;
     margin: 2px;
+
     cursor: pointer;
     transform: scale(1);
     transform-style: preserve-3d;
@@ -45,6 +47,7 @@ body {
     height: 100%;
     position: absolute;
     backface-visibility: hidden;
+    border-radius: 3px;
 }
 .front {
     transform: rotateY(180deg);
