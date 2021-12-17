@@ -4,8 +4,9 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: #002202;
+    background-color: #0fe6d4;
     color: #fff;
+    font-family: 'Lato', sans-serif;
 }
 .cards-container {
     height: 100vh;
@@ -56,19 +57,33 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
-    margin: -150px 0 0 -250px;
-    width: 500px;
-    height: 300px;
-    background-color: white;
+    margin: -60px 0 0 -125px;
+    width: 250px;
+    height: 120px;
+    /* background-color: rgb(250, 46, 46); */
+    background-color: #fc319a;
     color: black;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 5px;
+    -webkit-box-shadow: 5px 5px 5px 2px rgba(0,0,0,0.5); 
+    box-shadow: 5px 5px 5px 2px rgba(0,0,0,0.5);
     text-align: center;
     z-index: 10;
-    transform: translateY(-100vh);
+    /* transform: translateY(-100vh); */
     transition: all 1s ease-in-out;
 }
 .goDown {
     transform: translateY(0);
 }
 .play-again {
-
+    margin-top: 10px;
+    padding: 5px 15px 5px 15px;
+    border-radius: 3px;
+    border: none;
+    -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 5px 2px rgba(255,255,255,0); 
+    box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 5px 2px rgba(255,255,255,0);
+    background-color: rgb(174, 0, 255);
+    text-transform: uppercase;
+    font-size: 12px;
 }
