@@ -1,19 +1,39 @@
 const imagesArray = [
     {
-        name: 'image1',
-        img: 'img/image1.jpeg'
+        name: 'pig',
+        img: 'img/pig.svg'
     },
     {
-        name: 'image2',
-        img: 'img/image2.jpeg'
+        name: 'penguin',
+        img: 'img/penguin.svg'
     },
     {
-        name: 'image3',
-        img: 'img/image3.jpeg'
+        name: 'horse',
+        img: 'img/horse.svg'
     },
     {
-        name: 'image4',
-        img: 'img/image4.jpeg'
+        name: 'seal',
+        img: 'img/seal.svg'
+    },
+    {
+        name: 'dog',
+        img: 'img/dog.svg'
+    },
+    {
+        name: 'chicken',
+        img: 'img/chicken.svg'
+    },
+    {
+        name: 'frog',
+        img: 'img/frog.svg'
+    },
+    {
+        name: 'bear',
+        img: 'img/bear.svg'
+    },
+    {
+        name: 'monkey',
+        img: 'img/monkey.svg'
     }
 ];
 const copyOfImagesArray = [...imagesArray];

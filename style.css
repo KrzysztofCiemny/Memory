@@ -15,7 +15,7 @@ body {
     align-items: center;
 }
 .cards {
-    width: 500px;
+    width: 420px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -23,8 +23,8 @@ body {
 }
 .card {
     position: relative;
-    width: 70px;
-    height: 90px;
+    width: 60px;
+    height: 80px;
     margin: 2px;
 
     cursor: pointer;
@@ -49,9 +49,17 @@ body {
     position: absolute;
     backface-visibility: hidden;
     border-radius: 3px;
+    -webkit-box-shadow: 7px 7px 15px 0px #000000; 
+    box-shadow: 7px 7px 15px 0px #000000;
 }
 .front {
     transform: rotateY(180deg);
+    background-color: rgb(71, 196, 245);
+    border: 1px solid white;
+    padding: 5px;
+}
+.back {
+    background-color: black;
 }
 .win-plate {
     position: absolute;
@@ -60,7 +68,6 @@ body {
     margin: -60px 0 0 -125px;
     width: 250px;
     height: 120px;
-    /* background-color: rgb(250, 46, 46); */
     background-color: #fc319a;
     color: black;
     font-weight: 700;
@@ -71,7 +78,7 @@ body {
     text-align: center;
     z-index: 10;
     /* transform: translateY(-100vh); */
-    transition: all 1s ease-in-out;
+    transition: all 1.5s ease-in-out;
 }
 .goDown {
     transform: translateY(0);
@@ -86,4 +93,10 @@ body {
     background-color: rgb(174, 0, 255);
     text-transform: uppercase;
     font-size: 12px;
+    cursor: pointer;
+    transition: all .2s;
+}
+.play-again:hover {
+    background-color: rgb(195, 0, 255);
+    color: rgb(12, 12, 12);
 }
