@@ -1,12 +1,11 @@
-import cardsImagesArray from "./cardsArray.js";
 import turnCard from "./turnCards.js";
+import cards from "./main.js";
 
 const winPlate = document.querySelector('.win-plate');
-const cards = document.querySelectorAll('.card');
 
 export default function playAgain() {
-    cardsImagesArray.sort(() => 0.5 - Math.random());
     setTimeout(flipBackAllCards, 1000);
+    setTimeout(shuffle, 1500);
     winPlate.classList.toggle('goDown');
 }
 
@@ -17,3 +16,11 @@ function flipBackAllCards() {
         card.style.cursor = 'pointer';
     });
 }
+
+export function shuffle() {
+    cards.forEach(card => {
+        let randomPosition = Math.floor(Math.random() * 18);
+        card.style.order = randomPosition;
+    })
+}
+
