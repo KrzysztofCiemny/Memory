@@ -30,7 +30,7 @@ function checkForMatches() {
     }
     else {
         lockBoard = true;
-        setTimeout(noMatch, 1500);
+        setTimeout(noMatch, 1200);
     }
     cardsClickedName = [];
 }
