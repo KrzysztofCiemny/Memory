@@ -17,7 +17,7 @@ function flipBackAllCards() {
     });
 }
 
-export function shuffle() {
+function shuffle() {
     cards.forEach(card => {
         let randomPosition = Math.floor(Math.random() * 18);
         card.style.order = randomPosition;

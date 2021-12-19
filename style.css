@@ -101,7 +101,23 @@ body {
     background-color: rgb(195, 0, 255);
     color: rgb(12, 12, 12);
 }
+.info {
+    display: none;
+    text-align: center;
+    font-size: 22px;
+}
+.info i {
+    font-size: 27px;
+}
 
+@media (min-width: 400px) {
+    .info {
+        font-size: 27px;
+    }
+    .info i {
+        font-size: 33px;
+    }
+}
 @media (min-width: 700px) {
     .cards {
         width: 600px;
@@ -121,6 +137,12 @@ body {
         margin-top: 20px;
         padding: 6px 16px 6px 16px;
         font-size: 12px;
+    }
+    .info {
+        font-size: 30px;
+    }
+    .info i {
+        font-size: 37px;
     }
 }
 @media (min-width: 1024px) {
@@ -144,6 +166,12 @@ body {
         padding: 8px 22px 8px 22px;
         font-size: 19px;
     }
+    .info {
+        font-size: 45px;
+    }
+    .info i {
+        font-size: 52px;
+    }
 }
 @media (min-width: 1400px) {
     .cards {
@@ -163,5 +191,13 @@ body {
     .play-again {
         margin-top: 35px;
         font-size: 24px;
+    }
+}
+@media (orientation: portrait) {
+    .card {
+        display: none;
+    }
+    .info {
+        display: block;
     }
 }
