@@ -1,9 +1,9 @@
 # Memory Game
 Memory game created to improve my JavaScript skills
 ## Technologies that i used :
-* HTML5
-* CSS3
 * Vanilla JavaScript
+* CSS3
+* HTML5
 ## Setup
 To use this project, you need to paste this https://krzysztofciemny.github.io/Memory/ into browser. <br>
 I recommend to using **Google Chrome** for this project.
